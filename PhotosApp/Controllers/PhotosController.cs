@@ -31,8 +31,6 @@ namespace PhotosApp.Controllers
         {
             var model = dataService.GetAll();
 
-            
-
             return View("index",model);
         }
 
@@ -40,9 +38,13 @@ namespace PhotosApp.Controllers
         public async Task<IActionResult> Second()
         {
             var model = await dataService.GetAllRemote();
-            
-            //await dataService.GetAllRemote();
+            return View("index", model);
+        }
 
+        [Route("3")]
+        public async Task<IActionResult> Third()
+        {
+            var model = await dataService.GetAllRemote();
             return View("index", model);
         }
 
