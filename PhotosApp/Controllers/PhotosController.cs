@@ -44,7 +44,7 @@ namespace PhotosApp.Controllers
         [Route("3")]
         public async Task<IActionResult> Third()
         {
-            var model = await dataService.GetAllRemote();
+            var model = await dataService.GetAllRemoteV2();
             return View("index", model);
         }
 

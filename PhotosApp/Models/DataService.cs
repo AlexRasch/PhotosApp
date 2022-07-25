@@ -33,6 +33,19 @@ namespace PhotosApp.Models
             new Photo(10, 9, "810b14", @"https://via.placeholder.com/600/810b14", @"https://via.placeholder.com/150/810b14")
         };
 
+        public IndexVM[] GetAll()
+        {
+            return photos.Select(o => new IndexVM
+            {
+                Url = o.Url,
+                ThumbnailUrl = o.ThumbnailUrl,
+                Title = o.Title,
+            })
+            .OrderBy(o => o.Title)
+            .ToArray();
+
+        }
+
 
         public async Task<IndexVM[]> GetAllRemote()
         {
@@ -51,22 +64,26 @@ namespace PhotosApp.Models
                 
             })
             .ToArray();
-
-
         }
 
-
-       public IndexVM[] GetAll()
+        public async Task<IndexVM[]> GetAllRemoteV2()
         {
+            string url = "https://localhost:7028/photo";
+
+            var httpClient = _httpClientFactory.CreateClient();
+
+            Photo[] photos = await httpClient.GetFromJsonAsync<Photo[]>(url);
+
             return photos.Select(o => new IndexVM
             {
-                Url = o.Url,
                 ThumbnailUrl = o.ThumbnailUrl,
                 Title = o.Title,
-            })
-            .OrderBy(o => o.Title)
-            .ToArray();
+                Url = o.Url,
 
+
+            })
+            .ToArray();
         }
+
     }
 }
