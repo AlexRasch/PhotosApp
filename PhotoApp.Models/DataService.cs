@@ -1,11 +1,18 @@
 ﻿using System.Collections.Generic;
 
-using PhotosApp.Views.Photos;
+using PhotosApp.Webb;
+using PhotosApp.Webb.Views.Photos;
 
 namespace PhotosApp.Models
 {
-    public class DataService
+    public  class DataService
     {
+        //private readonly DataService dataService;
+        //
+        //public DataService(DataService dataService)
+        //{
+        //    this.dataService = dataService;
+        //}
 
         private readonly IHttpClientFactory _httpClientFactory;
 
