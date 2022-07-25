@@ -7,16 +7,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>API Test</title>
-    
+    <link rel="stylesheet" href="default.css">
+    <script>
+    function LoadAjax() {
+    	/*let result = await fetch(new Request("https://127.0.0.1:7028/photo?amount=10"), {
+		method:"GET",
+		mode: 'no-cors',
+		header: new Headers({
+			"content-type": "application/json",
+		}),
+	    });
+
+        const obj = await result.json();
+        console.log(obj);*/
+    } 
+    </script>
+
+
 </head>
-<body>
-    <ul>
-        @foreach (var item in Model)
-        {
-            <li>@item.Title</li>
-            <li><a href="@item.Url"><img src="@item.ThumbnailUrl" /></a></li>
+<body onload="LoadAjax()">
+    <div class="container-fluid">
+
+   
+            @*If model is empty don't try to loop over it*@
+            @if(Model != null)
+            {
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        <li>@item.Title</li>
+                        <li><a href="@item.Url"><img src="@item.ThumbnailUrl" /></a></li>
            
-        }
-    </ul>
+                    }
+                </ul>
+            }
+    </div>
+
+
 </body>
 </html>

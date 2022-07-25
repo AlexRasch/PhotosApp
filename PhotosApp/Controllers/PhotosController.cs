@@ -16,8 +16,8 @@ namespace PhotosApp.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            var model = dataService.GetAll();
-            return View(model);
+            //var model = dataService.GetAll();
+            return View("index");
         }
 
 
