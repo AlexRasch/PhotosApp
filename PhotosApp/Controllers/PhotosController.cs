@@ -27,17 +27,21 @@ namespace PhotosApp.Controllers
 
 
         [Route("1")]
-        public IActionResult First()
+        public async Task<IActionResult> First()
         {
             var model = dataService.GetAll();
+
+            
 
             return View("index",model);
         }
 
         [Route("2")]
-        public IActionResult Second()
+        public async Task<IActionResult> Second()
         {
-            var model = dataService.GetAll();
+            var model = await dataService.GetAllRemote();
+            
+            //await dataService.GetAllRemote();
 
             return View("index", model);
         }
