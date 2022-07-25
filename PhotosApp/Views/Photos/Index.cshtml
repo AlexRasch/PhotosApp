@@ -1,0 +1,24 @@
+﻿@using System.Diagnostics;
+
+@using PhotosApp.Views.Photos
+@model IndexVM[]
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+</head>
+<body>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.Title</li>
+            <li><a href="@item.Url"><img src="@item.ThumbnailUrl" /></a></li>
+           
+        }
+    </ul>
+</body>
+</html>
